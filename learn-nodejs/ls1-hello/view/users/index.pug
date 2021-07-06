@@ -1,7 +1,19 @@
-h1 User list
-form(action="/users/search", method="GET")
-  input(type="text" name="q" value=searchResult)
-  button Search
-ul
-  each user in users
-    li= user.name
+extends ../layouts/common
+block content
+  .container.mt-4
+    a.btn.btn-success(type='button' href="/users/create") Create 
+    h1 User list
+    .row.d-flex.justify-content-end
+      form.d-flex.col-3(action="/users/search", method="GET")
+        input.form-control.me-2(type='search' name="q" placeholder='Search' aria-label='Search' value=searchResult)
+        button.btn.btn-outline-success(type='submit') Search
+    table.table
+      thead
+        tr
+          th(scope='col') Name
+          th(scope='col') Phone
+      tbody
+        each user in users
+          tr
+            td= user.name
+            td= user.phone

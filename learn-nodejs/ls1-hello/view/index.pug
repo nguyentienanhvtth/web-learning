@@ -1,2 +1,5 @@
-h1 Hello #{name}
-a(href="/user") user list
+extends ./layouts/common
+block content
+  .container.mt-4
+    h1 Hello #{name}
+    a.btn.btn-success(type='button' href="/users") User list
